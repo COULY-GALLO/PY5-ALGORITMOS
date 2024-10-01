@@ -37,15 +37,26 @@ def setup():
 
 
 def draw():
-    py5.background(255)  # Limpiar la pantalla en cada frame
-    for i, tamano in enumerate(bubble_sort(cosa1)):
-        
-        diametro_circulo = tamano * 30 
-        x_pos = (i + 3)  # Posición X de cada círculo
-        y_pos = py5.height / 2  
-        
-        py5.fill(100, 150, 250) 
-        py5.circle(x_pos, y_pos, diametro_circulo)
+   global renderizar(tam):
+   if renderizar():    
+      py5.background(255)  
+      for i, tamaño in enumerate(tam):
+         diametro_circulo = tamaño * 30 
+         x_pos = (i + 3)  
+         y_pos = py5.height / 2  
+         py5.fill(100, 150, 250) 
+         py5.circle(x_pos, y_pos, diametro_circulo)
 
-# Ejecutar el sketch
+def key_pressed():
+    cosa2=bubble_sort(cosa1)
+    global renderizar(cosa2)
+    renderizar=True
+
+
+
+
+
+
+
 py5.run_sketch()
+
